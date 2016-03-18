@@ -95,6 +95,14 @@ module.exports =
         done err
       else
         done()
+  installBundleBcrypt: (session, pm2mConf, done)->
+    bcryptLocation = path.join getAppLocation(pm2mConf), _settings.bundleName, "/programs/server/npm/node_modules/meteor/npm-bcrypt/node_modules"
+    cmd = cmdString pm2mConf, "cd #{bcryptLocation} && rm -r bcrypt && npm i bcrypt"
+    session.execute cmd, {}, (err, code, logs)->
+      if err
+        done err
+      else
+        done()
   startApp: (session, pm2mConf, done)->
     cmd = cmdString pm2mConf, "cd #{getAppLocation(pm2mConf)} && pm2 start #{_settings.pm2EnvConfigName}"
     session.execute cmd, {}, (err, code, logs)->

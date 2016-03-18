@@ -37,6 +37,8 @@ module.exports =
       (cb)->
         remoteTasks.installBundleDeps session, pm2mConf, cb
       (cb)->
+        remoteTasks.installBundleBcrypt session, pm2mConf, cb
+      (cb)->
         remoteTasks.reloadApp session, pm2mConf, reconfig, cb
     ], (err)->
       cli.spinner "", true
@@ -150,6 +152,8 @@ module.exports =
         remoteTasks.extractTarBall session, pm2mConf, cb
       (cb)->
         remoteTasks.installBundleDeps session, pm2mConf, cb
+      (cb)->
+        remoteTasks.installBundleBcrypt session, pm2mConf, cb
       (cb)->
         remoteTasks.reloadApp session, pm2mConf, true, cb
     ], (err)->
