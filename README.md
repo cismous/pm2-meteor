@@ -1,6 +1,15 @@
 # pm2-meteor
 A CLI tool, that will deploy your Meteor app (from your dev machine or from git) as Nodejs bundle and run it with PM2. (tested with Ubuntu and Freebsd hosts)
 
+## 安装说明
+当meteor添加模块时，如果该模块依赖npm-bcrypt的情况下，在服务器部署该项目会报错无法启动，该问题由bcrypt引起，通常解决方案是登录服务器，进入bcrypt目录重新安装该模块。
+之所以fork这个项目并提交了代码，是为了解决这个问题，下面便是安装步骤:
+```
+$ git clone git@github.com:cismous/pm2-meteor.git
+$ npm i
+$ npm link
+```
+
 ## A friendly info
 This tool is still under construction and we will continue adding features.  
 What is different about this tool:  
